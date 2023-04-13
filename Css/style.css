@@ -1,0 +1,60 @@
+/* Color Theme Swatches in Hex */
+body {
+  margin: 0px;
+  background-color: #0D0D0D;
+  color: #F2E7DC;
+}
+
+main {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+main h1 {
+  width: 50%;
+  background-color: #535353;
+  text-align: center;
+}
+main input#inputText {
+  color: #F7ECE1;
+  width: 500px;
+  border: none;
+  background-color: #0D0D0D;
+  border-bottom: 1px solid #F7ECE1;
+  transition-duration: 0.3s;
+}
+main input#inputText:focus {
+  border-color: #FABC2A;
+  outline: none;
+}
+main button#buttonTag {
+  width: 80px;
+  background-color: #0D0D0D;
+  color: #F7ECE1;
+  font-size: 15px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition-duration: 0.3s;
+}
+main button#buttonTag span {
+  font-size: 20px;
+}
+main button#buttonTag:hover {
+  background-color: #FABC2A;
+  color: black;
+}
+main div.tasks {
+  width: 500px;
+  height: 20px;
+  color: black;
+  margin-top: 10px;
+  text-align: center;
+  background-color: red;
+}
+
+/*# sourceMappingURL=style.css.map */

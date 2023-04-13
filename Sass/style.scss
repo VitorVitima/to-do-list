@@ -1,0 +1,64 @@
+@import './variaveis.scss';
+body{
+    margin: 0px;
+    background-color: $color1;
+    color: #F2E7DC;
+}
+main{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    h1{
+        width: 50%;
+        background-color: #535353;
+        text-align: center;
+    }
+    
+    input#inputText{
+        color: $color5;
+        width: 500px;
+        border: none;
+        background-color: $color1;
+        border-bottom: 1px solid $color5;
+
+        transition-duration: 0.3s;
+        &:focus{
+            border-color: $color4;
+            outline: none;
+        }
+    }
+    button#buttonTag{
+        width: 80px;
+        background-color: $color1;
+        color: $color5;
+        
+        font-size: 15px;
+
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        
+        transition-duration: 0.3s;
+        span{
+            font-size: 20px;
+        }
+        &:hover{
+            background-color: $color4;
+            color: black;
+        }
+    }
+    div.tasks{
+        width: 500px;
+        height: 20px;
+        color: black;
+        
+        margin-top: 10px;
+        text-align: center;
+        background-color: red;
+    }
+}
