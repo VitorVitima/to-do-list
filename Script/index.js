@@ -1,51 +1,78 @@
-const button = document.querySelector('#buttonTag')
-const list = document.querySelector('#list')
-const text = document.querySelector("input[type='text']")
-console.log(text)
+let arrayComplete = []
 
-function drawTaks(e){
-    const div = document.createElement('div')
-    div.classList.add('tasks')
-    div.id = `task${e}`
-    eval(`div.innerHTML = localStorage.task${e}`)
-    list.appendChild(div)
-}
-function drawAllTaks(){
-    for(let v1=0; v1 < localStorage.length; v1++){
-        drawTaks(v1)
-    }
-}
-function keyStorage(){
-    const tamanho = localStorage.length
-    return `task${tamanho}`
-}
-function taskRepetida(e){
+function addSessionComplete(tag){
+    const numeroDaNote = tag.target.parentNode.parentNode.parentNode.parentNode.id
+    const spanInnerHTML = tag.target.parentNode.parentNode.children[1].innerHTML
+    const valorSessionStorage = sessionStorage.getItem(`${numeroDaNote}Complete`)
+    const valorLocalStorage = localStorage.getItem(`${numeroDaNote}`)
+    
+    let valorFinalLocalStorage = valorLocalStorage.replace(`,${spanInnerHTML}`, '')
+    let valorFinalSessionStorage = `${valorSessionStorage},${spanInnerHTML}`
+    
+    sessionStorage.setItem(`${numeroDaNote}Complete`, valorFinalSessionStorage)
+    localStorage.setItem(`${numeroDaNote}`, `${valorFinalLocalStorage}`)
     
 }
-function addNewTask(e){
-    if(text.value == eval(`localStorage.task${e}`) || taskRepetida(e)){
-        drawTaks(e)
-    }
+function removeSessionComplete(tag){
+    const numeroDaNote = tag.target.parentNode.parentNode.parentNode.parentNode.id
+    const spanInnerHTML = tag.target.parentNode.parentNode.children[1].innerHTML
+    const valorSessionStorage = sessionStorage.getItem(`${numeroDaNote}Complete`)
+    const valorLocalStorage = localStorage.getItem(`${numeroDaNote}`)
+
+    let valorFinalSessionStorage = valorSessionStorage.replace(`,${spanInnerHTML}`, '')
+    let valorFinalLocalStorage = `${valorLocalStorage},${spanInnerHTML}`
+    
+    sessionStorage.setItem(`${numeroDaNote}Complete`, valorFinalSessionStorage)
+    localStorage.setItem(`${numeroDaNote}`, `${valorFinalLocalStorage}`)
+
 }
-function addTaks(){
-    localStorage.setItem(keyStorage(), text.value)
-    for(let v1=0; v1 < localStorage.length; v1++){
-        addNewTask(v1)
-    }
-}
-function textNull(){
-    text.style.borderColor = 'red'
-    setTimeout(()=>{
-        text.style.borderColor = '#F7ECE1'
-    }, 1000)
-    console.log('foi')
-}
-button.addEventListener('click', ()=>{
-    console.log(localStorage)
-    if(text.value != ''){
-        addTaks()
+function inputFun2(e, determinante){
+    if(determinante){
+        e.target.style.color = 'black'
+        e.target.parentNode.parentNode.parentNode.parentNode.children[5].appendChild(
+            e.target.parentNode.parentNode
+        )
+
     } else {
-        textNull()
+        e.target.style.color = 'transparent'
+        e.target.parentNode.parentNode.parentNode.parentNode.children[4].appendChild(
+           e.target.parentNode.parentNode
+        )
     }
-})
-drawAllTaks()
+}
+function inputFun(tag){
+    let idPai = tag.target.parentNode.parentNode.id
+    if(tag.target.parentNode.parentNode.id.indexOf('marcado') >= 1){
+        removeSessionComplete(tag)
+        idPai = idPai.replace('marcado', '')
+        tag.target.parentNode.parentNode.id = `${idPai}`
+        tag.target.parentNode.children[0].setAttribute("checked","checked");
+        inputFun2(tag, false)
+    } else {
+        addSessionComplete(tag)
+        tag.target.parentNode.parentNode.id = `${idPai}marcado`
+        tag.target.parentNode.children[0].removeAttribute("checked");
+        inputFun2(tag, true)
+    }
+}
+function drawConteiner(v2){
+    creatNote(v2)
+}
+function drawAllNotes(){
+    const mesagemSemNote = document.querySelector('#mesagemSemNote')
+    const tamanho = localStorage.length
+    if(tamanho != 0){
+        mesagemSemNote.style.display = 'none'
+
+        for(let v2=1; v2 <= tamanho;v2++){
+            drawConteiner(v2)
+        }
+    }
+}
+function deleteAllNotes(){
+    const notes = [...document.querySelectorAll('.notes')]
+    notes.map((element)=>{
+        element.remove()
+    })
+}
+drawAllNotes()
