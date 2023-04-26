@@ -43,27 +43,35 @@ function buttonDeletFun(e){
     localStorage.setItem(`${numeroDaNote}`, concatenacao)
 }
 function creatTasks(v3, list, values){
-    const div = document.createElement('div')
+            const div = document.createElement('div')
             const conteinerInput = document.createElement('div')
             const span = document.createElement('span')
             const buttonTag2 = document.createElement('div')
             const iconTrash = document.createElement('i')
             const input = document.createElement('input')
             const iconCheck = document.createElement('i')
+            const pencilConteiner = document.createElement('div')
+            const pencil = document.createElement('i')
+
             
             div.id = `task${v3}`
             div.classList.add('tasks')
             span.innerHTML = values[v3]
-    
+            
             conteinerInput.classList.add('conteinerInput')
             conteinerInput.appendChild(input)
             conteinerInput.appendChild(iconCheck)
-    
+            
             input.type = 'checkbox'
             input.classList.add('checkTag')
-    
+            
             iconTrash.classList.add('gg-add')
-    
+            
+            pencilConteiner.classList.add('pencilConteiner')
+            pencil.classList.add('pencil')
+            pencilConteiner.appendChild(pencil)
+            pencil.addEventListener('click', editTasksFun)
+            
             buttonTag2.classList.add('buttonDelet')
             buttonTag2.appendChild(iconTrash)
             buttonTag2.addEventListener('click', buttonDeletFun)
@@ -74,6 +82,7 @@ function creatTasks(v3, list, values){
     
             div.appendChild(conteinerInput)
             div.appendChild(span)
+            div.appendChild(pencilConteiner)
             div.appendChild(buttonTag2)
             list.appendChild(div)
 }
@@ -208,7 +217,7 @@ function creatNote(v2){
     note.classList.add('notes')
     note.id = `0${v2}`
 
-    note.addEventListener('keyup', event=>{
+    inputText.addEventListener('keyup', event=>{
         const parametro = event.target.parentNode.children[1]
         if(event.key == 'Enter'){
             buttonTagFun(parametro)
