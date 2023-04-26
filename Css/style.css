@@ -8,6 +8,22 @@ html {
   overflow-x: hidden;
 }
 
+::-webkit-scrollbar {
+  background-color: #01161E;
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(252, 252, 255, 0.5882352941);
+}
+
+header {
+  background-color: #01161E;
+  width: 100vw;
+  text-align: center;
+  padding: 10px 0px;
+}
+
 main {
   width: 100vw;
   min-height: 90vh;
@@ -271,14 +287,6 @@ main div.offCloseNotes {
   height: 0px;
 }
 
-main h1 {
-  width: 50%;
-  background-color: #535353;
-  text-align: center;
-  position: absolute;
-  transform: translate(-50%);
-  left: 50vw;
-}
 main input.noteTextAdd {
   color: #FCFCFF;
   width: 75%;
@@ -536,15 +544,49 @@ main div#newNote .gg-add-r::after {
   left: 8px;
 }
 
+footer {
+  background-color: rgba(45, 49, 51, 0.2862745098);
+  width: 100vw;
+  min-height: 90px;
+  box-shadow: 10px 0px 10px rgba(45, 49, 51, 0.2862745098);
+  padding: 10px 15px;
+  margin-top: 10px;
+}
+footer h3 {
+  font-size: 20px;
+}
+footer ul {
+  list-style: none;
+  padding: 0px 15px 0px 5px;
+  display: flex;
+  gap: 10px;
+}
+footer ul h3 {
+  margin-left: 15px;
+}
+footer ul li a {
+  font-size: 15px;
+  text-decoration: none;
+  transition-duration: 0.3s;
+  color: #FCFCFF;
+}
+footer ul li a:hover {
+  color: #F5F749;
+}
+footer ul li a span {
+  margin-right: 5px;
+}
+footer div {
+  text-align: center;
+}
+footer div span {
+  color: gray;
+}
+
 @media screen and (max-width: 500px) {
   main {
     padding-left: 20px;
     align-items: center;
-  }
-  main h1 {
-    padding: 10px 0px;
-    width: 100vw;
-    top: 1px;
   }
   main div#allNotes {
     margin-top: 90px;
