@@ -257,7 +257,7 @@ buttonTag.addEventListener('click', ()=>{
     inputTitulo.value = 'Titulo'
     newNoteBoxConfig.style.display = 'block'
     closeConfig.id = 'openConfig'
-    closeConfig.style.height = `${mainHeight}px`
+    closeConfig.style.height = `${mainHeight - 30}px`
 
 })
 function saveLocalSorage(titulo){
