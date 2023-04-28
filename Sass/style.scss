@@ -23,6 +23,13 @@ html{
         justify-content: space-between;
         align-items: center;
 }
+@mixin inputConfig($w, $colorBc, $color){
+    width: $w;
+    background-color: $colorBc;
+    color: $color;
+    border: none;
+    outline: none;
+}
 @mixin buttonAdd{
         width: 80px;
         background-color: $color1;
@@ -184,10 +191,10 @@ main{
             transition-duration: 0.3s;
 
             position: relative;
-            h2{
-                width: 90%;
-                margin-right: 0%;
+            input.tituloNote{
+                @include inputConfig(90%, $color1, $color5);
                 text-align: center;
+                font-size: 23px;
             }
             
             div.conteinerButtonDelet{
@@ -201,7 +208,6 @@ main{
                 position: absolute;
                 top: 10px;
                 left: 90%;
-                //z-index: 10;
 
                 color: $color1_1;
                 cursor: pointer;
@@ -498,7 +504,10 @@ main{
                     }
                 }
 
-                .ocultList{
+                &.ocultList{
+                    div.tasks{
+                        display: none;
+                    }
                     div.conteinerInput{
                         display: none;
                     }
@@ -612,13 +621,7 @@ main {
         left: 50vw;
         transform: translate(-50%, -50%);
 
-        @mixin inputConfig($w, $colorBc, $color){
-            width: $w;
-            background-color: $colorBc;
-            color: $color;
-            border: none;
-            outline: none;
-        }
+        
         input#newNoteTitulo{
             @include inputConfig(50%, $color1, $color5);
 

@@ -52,3 +52,15 @@ function editTasksFun(e){
     e.target.parentNode.appendChild(inputConteiner)
     input.focus()
 }
+
+function editTitulo(e){
+    const numeroDaNote = e.target.parentNode.id
+    const LS = localStorage.getItem(`${numeroDaNote}`).split(',')
+    LS[1] = e.target.value
+    let concatenacao = ''
+    for(let v1 = 1;v1 != LS.length; v1++){
+        concatenacao += `,${LS[v1]}`
+    }
+    const valorLocalFinal = concatenacao
+    localStorage.setItem(`${numeroDaNote}`, valorLocalFinal)
+}

@@ -155,7 +155,7 @@ function listCompleteFun(e){
 function creatNote(v2){
     const allSaveNotes = [...document.querySelectorAll(`.tasks-0${localStorage.length+1}`)]
     const note = document.createElement('div')
-    const h2Tag = document.createElement('h2')
+    const tituloTag = document.createElement('input')
     const addTask = document.createElement('div')
     const inputText = document.createElement('input')
     const buttonTag = document.createElement('button')
@@ -177,7 +177,8 @@ function creatNote(v2){
     }
     focusConfig.classList.add('focusConfig')
 
-    h2Tag.innerHTML = values[1]
+    tituloTag.value = values[1]
+    tituloTag.classList.add('tituloNote')
     list.id = `list-0${localStorage.length+1}`
     list.classList.add('list')
     allSaveNotes.map((e)=>{
@@ -223,9 +224,9 @@ function creatNote(v2){
             buttonTagFun(parametro)
         }
     })
-
+    tituloTag.addEventListener('change', editTitulo)
     note.appendChild(focusConfig)
-    note.appendChild(h2Tag)
+    note.appendChild(tituloTag)
     note.appendChild(conteinerButtonDelet)
     note.appendChild(addTask)
     note.appendChild(list)

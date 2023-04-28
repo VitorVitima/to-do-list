@@ -1,9 +1,8 @@
-
 function deleteNote(e){
     const closeNote = document.querySelector('#closeNote')
     const localStorageTamanho = localStorage.length
     const keyAtualFun = () => {
-        if(e.target.classList == 'gg-more-alt'){
+        if(e.target.classList == 'gg-trash'){
             return e.target.parentNode.parentNode.id
         } else{
             return e.target.parentNode.id

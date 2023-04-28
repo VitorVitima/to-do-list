@@ -125,10 +125,14 @@ main div#allNotes div.notes {
   transition-duration: 0.3s;
   position: relative;
 }
-main div#allNotes div.notes h2 {
+main div#allNotes div.notes input.tituloNote {
   width: 90%;
-  margin-right: 0%;
+  background-color: #01161E;
+  color: #FCFCFF;
+  border: none;
+  outline: none;
   text-align: center;
+  font-size: 23px;
 }
 main div#allNotes div.notes div.conteinerButtonDelet {
   width: 40px;
@@ -448,10 +452,13 @@ main div#allNotes div.notes div.listComplete div.tasks:hover .gg-add {
 main div#allNotes div.notes div.listComplete div.pencilConteiner i.pencil, main div#allNotes div.notes div.listComplete div.pencilConteiner .pencil::before, main div#allNotes div.notes div.listComplete div.pencilConteiner .pencil::after {
   background-color: #01161E;
 }
-main div#allNotes div.notes div.listComplete .ocultList div.conteinerInput {
+main div#allNotes div.notes div.listComplete.ocultList div.tasks {
   display: none;
 }
-main div#allNotes div.notes div.listComplete .ocultList div.tasks {
+main div#allNotes div.notes div.listComplete.ocultList div.conteinerInput {
+  display: none;
+}
+main div#allNotes div.notes div.listComplete.ocultList div.tasks {
   display: none;
 }
 main div#allNotes div.notes div.listComplete.viewList {
@@ -763,3 +770,5 @@ footer div span {
     width: 90vw;
   }
 }
+
+/*# sourceMappingURL=style.css.map */
